@@ -1,9 +1,10 @@
-﻿namespace AuthenAPI_CustomFilter.Authentication
+﻿using System.Security.Claims;
+
+namespace AuthenAPI_CustomJwt.Authentication
 {
     public interface ITokenManager
     {
         bool Authenticate(string username, string password);
-        Token NewToken();
-        bool VerifyToken(string token);
+        string NewToken();
     }
 }

@@ -1,43 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
-namespace AuthenAPI_CustomFilter.Authentication
+namespace AuthenAPI_CustomJwt.Authentication
 {
     public class TokenManager : ITokenManager
     {
-        private List<Token> tokenList = new();
+        public TokenManager(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
 
         public bool Authenticate(string username, string password)
         {
-            if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password)) return false;
-
-            if (username.ToLower() != "user" && password.ToLower() != "pass") return false;
+            if (username.ToLower() != "user"
+                || password.ToLower() != "pass")
+            {
+                return false;
+            }
 
             return true;
         }
 
-        public Token NewToken()
+        public string NewToken()
         {
-            var token = new Token
+            JwtSecurityTokenHandler tokenHandler = new();
+
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Value = Guid.NewGuid().ToString(),
-                ExpiryDate = DateTime.Now.AddSeconds(60)
+                Subject = new ClaimsIdentity(new Claim[] { new Claim(ClaimTypes.Name, "Brotherman Bill") }),
+                Expires = DateTime.UtcNow.AddMinutes(1),
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtConfig:Secret"])), 
+                    SecurityAlgorithms.HmacSha256Signature)
             };
 
-            tokenList.Add(token);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return token;
-        }
-
-        public bool VerifyToken(string token)
-        {
-            if (tokenList.Any(x => x.Value == token && x.ExpiryDate > DateTime.Now))
-            {
-                return true;
-            }
-
-            return false;
+            return tokenHandler.WriteToken(token);
         }
     }
 }

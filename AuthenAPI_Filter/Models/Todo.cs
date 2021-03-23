@@ -1,4 +1,4 @@
-﻿namespace AuthenAPI_CustomFilter.Models
+﻿namespace AuthenAPI_CustomJwt.Models
 {
     public class Todo
     {

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenWebApp", "AuthenWebAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenAPI", "AuthenAPI\AuthenAPI.csproj", "{76AF8443-E12D-47E2-8CEF-D2C28F436432}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenAPI_CustomFilter", "AuthenAPI_Filter\AuthenAPI_CustomFilter.csproj", "{B166AE4B-5239-471D-A0A4-4A89A6DDF0D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenAPI_CustomJwt", "AuthenAPI_Filter\AuthenAPI_CustomJwt.csproj", "{B166AE4B-5239-471D-A0A4-4A89A6DDF0D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

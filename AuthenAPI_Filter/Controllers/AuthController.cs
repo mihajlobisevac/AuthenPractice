@@ -1,7 +1,7 @@
-﻿using AuthenAPI_CustomFilter.Authentication;
+﻿using AuthenAPI_CustomJwt.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AuthenAPI_CustomFilter.Controllers
+namespace AuthenAPI_CustomJwt.Controllers
 {
 
     [ApiController]
@@ -16,15 +16,14 @@ namespace AuthenAPI_CustomFilter.Controllers
         }
 
         [HttpGet]
-        public IActionResult Authenticate(string username, string password)
+        public IActionResult Authenticate(string username = "", string password = "")
         {
             if (_tokenManager.Authenticate(username, password))
             {
                 return Ok(new { Token = _tokenManager.NewToken() });
             }
 
-            ModelState.AddModelError("Unauthorized", "You are unauthorized.");
-            return Unauthorized(ModelState);
+            return Unauthorized();
         }
     }
 }

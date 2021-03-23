@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenAPI_CustomFilter.Authentication
+namespace AuthenAPI_CustomJwt.Authentication
 {
     public class Token
     {

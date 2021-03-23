@@ -1,13 +1,13 @@
-﻿using AuthenAPI_CustomFilter.Filters;
-using AuthenAPI_CustomFilter.Models;
+﻿using AuthenAPI_CustomJwt.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace AuthenAPI_CustomFilter.Controllers
+namespace AuthenAPI_CustomJwt.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [TokenAuthenticationFilter]
+    [Authorize]
     public class TodosController : ControllerBase
     {
         [HttpGet]
