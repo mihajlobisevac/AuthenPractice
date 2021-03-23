@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenWebApp", "AuthenWebApp\AuthenWebApp.csproj", "{F37E0106-9DF1-4FF0-9B02-BDC6EEF9A3A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenAPI", "AuthenAPI\AuthenAPI.csproj", "{76AF8443-E12D-47E2-8CEF-D2C28F436432}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenAPI", "AuthenAPI\AuthenAPI.csproj", "{76AF8443-E12D-47E2-8CEF-D2C28F436432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenAPI_CustomFilter", "AuthenAPI_Filter\AuthenAPI_CustomFilter.csproj", "{B166AE4B-5239-471D-A0A4-4A89A6DDF0D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{76AF8443-E12D-47E2-8CEF-D2C28F436432}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76AF8443-E12D-47E2-8CEF-D2C28F436432}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76AF8443-E12D-47E2-8CEF-D2C28F436432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B166AE4B-5239-471D-A0A4-4A89A6DDF0D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B166AE4B-5239-471D-A0A4-4A89A6DDF0D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B166AE4B-5239-471D-A0A4-4A89A6DDF0D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B166AE4B-5239-471D-A0A4-4A89A6DDF0D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
